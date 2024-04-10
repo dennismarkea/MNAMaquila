@@ -1,0 +1,734 @@
+/* Índice */
+/* 1. Variables CSS */
+/* 2. Estilos generales */
+/* 3. Tipografía */
+/* 4. Navegación */
+/* 5. Contenedores */
+/* 6. Tarjetas */
+/* 7. Formulario */
+/* 8. Botones */
+/* 9. Secciones */
+/* 10. Medios */
+
+
+/* 1. Variables CSS */
+:root {
+    --red: #BE1407;
+    --pink: #f8a9a9;
+    --light: #FFF;
+    --black: #000000;
+    --grey: #9A9A9A;
+    --grey-light: #E5E5E5;
+}
+
+/* 2. Estilos generales */
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Poppins", sans-serif;
+}
+.bg-red{
+    background-color: var(--red);
+}
+.border-dan{
+    border: 5px solid;
+    border-image: linear-gradient(to right, var(--red), var(--pink));
+    border-image-slice: 1;
+}
+.border-left {
+    border-left: 1px solid rgba(255, 255, 255, 0.7);
+    padding-left: 12px;
+
+}
+
+.splide__slide li::before {
+    color: var(--red);
+    content: "\2022"; /* Código del marcador de lista circular (•) */
+    font-weight: bold; /* Opcional: hacer el marcador en negrita */
+    display: inline-block; /* Para alinear correctamente el marcador */
+    width: 1em; /* Tamaño del marcador */
+    margin-left: -1em; /* Ajusta la posición del marcador */
+}
+
+/*.article ul {*/
+/*    padding-left: 1rem;*/
+/*}*/
+.hr-primary{
+    color: var(--light);
+    opacity: 1;
+
+
+}
+
+/* 3. Tipografía */
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+.paragraph-1{
+    font-size: 42px;
+}
+.paragraph-2{
+    font-size: 40px;
+}
+.paragraph-3{
+    font-size: 18px;
+}
+.paragraph-4{
+    font-size: 20px;
+}
+.paragraph-5{
+    font-size: 24px;
+}
+.paragraph-6{
+    font-size: 14px;
+}
+.paragraph-shadow {
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+/* 4. Navegación */
+.nav-item a {
+    font-size: 20px;
+    color: var(--light);
+
+}
+.nav-item a:hover {
+    color: var(--black);
+}
+
+.nav-link:nth-child(1), .nav-link:nth-child(2),
+.nav-link:nth-child(3){
+    margin-right: 20px;
+}
+
+/* Main menu positionning */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: start;
+    background: rgba(255,255,255,0.8);
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    transition: all .375s;
+}
+
+.mobile-nav.is-open {
+    opacity: 1;
+    z-index: 100;
+    visibility: visible;
+}
+
+/* Yellow band effect */
+.mobile-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -15px;
+    background: var(--light);
+    transform-origin: 0 0;
+    /*transform: skew(-14deg) translateX(-120%);*/
+    transition: all .275s .1s;
+}
+
+.mobile-nav.is-open::before {
+    /*transform: skew(-14deg) translateX(0);*/
+}
+
+/* Skewing effect on menu links */
+.mobile-nav ul {
+    position: relative;
+    top: 180px;
+    flex-direction: column;
+
+    align-items: start;
+    justify-content: center;
+    /*transform: translateX(-18%) skew(-16deg);*/
+    margin-bottom: 0;
+
+}
+
+.mobile-nav li {
+    display: block;
+    margin: .5rem 0;
+    text-align: start;
+    min-width: 100%;
+
+    /*transform: skew(16deg);*/
+}
+
+/* Apparition effect on links */
+.mobile-nav a {
+    opacity: 0;
+    transform: translateY(-10px);
+    border-bottom: 1px solid var(--grey-light);
+}
+
+.mobile-nav.is-open a {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mobile-nav li:nth-child(1) a {
+    transition: all 275ms 175ms
+}
+.mobile-nav li:nth-child(2) a {
+    transition: all 275ms 225ms
+}
+.mobile-nav li:nth-child(3) a {
+    transition: all 275ms 275ms
+}
+.mobile-nav li:nth-child(4) a {
+    transition: all 275ms 325ms
+}
+.mobile-nav li:nth-child(5) a {
+    transition: all 275ms 375ms
+}
+
+
+/* Decoration */
+.mobile-nav ul,
+.mobile-nav li {
+    list-style: none;
+
+}
+.mobile-nav a {
+    display: block;
+    padding: 12px 0;
+    color: var(--black);
+    font-size: 2em;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.mobile-nav .top-actions {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 2rem 2rem 0 0;
+}
+
+.mobile-nav .top-actions #close-navbar{
+    z-index: 1;
+    font-size: 40px;
+    cursor: pointer;
+}
+.mobile-nav .top-actions {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 2rem;
+}
+
+.mobile-nav .top-actions #close-navbar{
+    z-index: 1;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.lang-container .btn  {
+    text-decoration: none;
+    color: white;
+}
+
+.lang-container .btn img{
+    border: 2px solid white;
+
+}
+
+.lang-container .btn label{
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mobile-nav .bottom-actions{
+    width: 42%;
+    position: absolute;
+    top: 540px;
+    justify-content: center;
+}
+
+.bottom-actions .social-container {
+    display: flex;
+    z-index: 1;
+}
+
+.bottom-actions .social-container .mail,
+.bottom-actions .social-container .phone {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+    color: #FFFFFF;
+}
+
+.bottom-actions .social-container .mail .icon,
+.bottom-actions .social-container .phone .icon{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--red);
+    border-radius: 50%;
+}
+
+.bottom-actions .social-container .mail .icon i,
+.bottom-actions .social-container .phone .icon i{
+    color: var(--light);
+    font-size: 23px;
+}
+
+.bottom-actions .social-container .phone {
+    margin-right: 0 !important;
+}
+
+/* Toggle State part */
+#burger{
+    cursor: pointer;
+}
+.is-open .burger {
+
+    transform: skew(5deg) translateY(-8px) rotate(-45deg);
+}
+
+.is-open .burger:before {
+    transform: translateY(0px) skew(-10deg) rotate(75deg);
+}
+
+.is-open .burger:after {
+    transform: translateY(-12px) translateX(10px) skew(-20deg);
+    opacity: 0;
+}
+
+
+/* 5. Contenedores */
+.container--info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.container--info-1{
+    padding: 10px;
+}
+.container--info-2 {
+    position: absolute;
+    margin: 14px 0 14px 0;
+    right: 0;
+    top: 0;
+}
+.container--form {
+    padding-top: 6px;
+    display: flex;
+    align-items: center;
+}
+
+/* 6. Tarjetas */
+.services--card .card {
+    position: relative;
+    width: 300px;
+    height: 320px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    margin: 5px;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 4px solid var(--red);
+    transition: width 0.3s ease;
+}
+.services--card .card .card-text{
+    display: none;
+}
+.services--card .card.active .card-title{
+    rotate: 360deg;
+    position: relative;
+    bottom: 0;
+    right: 0;
+
+}
+.services--card .card .card-title{
+    rotate: 270deg;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+
+}
+.services--card .card.active{
+    background-color: var(--red);
+    color: var(--light);
+    width: 500px;
+}
+.services--card .card.active .card-text{
+    display: block;
+}
+
+/* 7. Formulario */
+.container--form {
+    padding-top: 6px;
+    display: flex;
+    align-items: center;
+}
+.form-container {
+    flex: 1;
+}
+.form-container > p:nth-child(2),
+.form-container > p:nth-child(4),
+.form-container > p:nth-child(6),
+.form-container > p:nth-child(8){
+    color: var(--grey);
+
+}
+.form-container input{
+    border: 0;
+    border-radius: 0;
+}
+.form-container textarea{
+    border: 0;
+    border-radius: 0;
+}
+.form-container form {
+    background-color: #f2f2f2;
+    padding: 68px;
+}
+
+/* 8. Botones */
+.btn{
+    letter-spacing: 1px !important;
+    font-weight: 200 !important;
+    padding-right: 12px !important;
+    padding-left: 12px !important;
+}
+.btn-primary{
+    background-color: var(--red) !important;
+    border-color: var(--red) !important;
+}
+
+
+/* 9. Secciones */
+.hero{
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+}
+.hero__img{
+    position: absolute;
+    right: 0;
+    bottom: 16px;
+}
+.highlights{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+.highlights .card{
+    background-color: #fff;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    /*margin: 0 10px 0 10px;*/
+    /*padding: 4px 45px 45px 45px;*/
+    margin: 12px;
+    padding: 30px;
+    border: none;
+    width: 300px;
+    height: 280px;
+    align-items: center;
+}
+.highlights .card p{
+    text-align: center;
+
+}
+.products{
+    display: flex;
+    justify-content: space-between;
+
+}
+.products__container-hover{
+    width: 60%;
+}
+.products img{
+    height: auto;
+    width: 60px;
+    padding: 5px;
+}
+.products--item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid var(--grey-light);
+}
+.products--item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+.products--item:hover::after {
+    transform: scaleX(1);
+}
+.products--item p{
+    margin: 0;
+}
+.splide__slide {
+    display: flex;
+    align-items: stretch;
+}
+.card {
+    width: 100%;
+}
+.card-body {
+    flex: 1;
+}
+.article .card{
+    padding: 0;
+    margin: 12px;
+    border-radius: 0;
+    border: none;
+    background-color: #fff; /* Color de fondo del contenedor */
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.article img{
+    background-size: cover; /* Cubrir todo el contenedor */
+    background-position: center; /* Centrar la imagen */
+    width: 300px;
+    height: 300px;
+
+}
+.article .card .card-img-top {
+    margin: 0; /* Elimina el margen */
+    padding: 0; /* Elimina el relleno */
+}
+.article .card .badge{
+    background-color: var(--red);
+    top: 12px;
+    left: 12px;
+    border-radius: 0;
+    font-size: 14px;
+    padding: .8rem 1rem;
+}
+.article span{
+    border-color: transparent;
+    border: 0;
+}
+
+/* 10. Footer */
+footer.container-fluid .container p:nth-child(1){
+
+    padding: 0 12px 0 0;
+}
+.mobile-footer{
+    position: absolute;
+    bottom: 20px;
+}
+.mobile-footer p:nth-child(1){
+    font-size: 14px;
+}
+.mobile-footer p:nth-child(2){
+    color: var(--red);
+}
+.mobile-footer p:nth-child(3){
+    color: var(--red);
+}
+.mobile-footer p:nth-child(4){
+    max-width: 90%;
+}
+.mobile-footer p{
+    margin-bottom: 16px;
+}
+/* 11. Medios */
+@media (max-width: 576px) {
+    .container--info {
+        display: none;
+    }
+
+    /*.container.hero h1{*/
+    /*    padding-bottom: 20rem !important;*/
+    /*}*/
+    .container.hero .btn-lg {
+        margin-top: 1rem !important;
+    }
+
+    .hero__img {
+        bottom: 5px;
+    }
+
+    .hero {
+        justify-content: unset;
+        height: 110vh;
+    }
+
+    .container.hero h1 {
+        order: 1;
+    }
+
+    .container.hero button {
+        order: 2;
+    }
+
+    .container.hero p {
+        order: 3;
+        margin-top: 425px !important;
+    }
+
+    .container.services p {
+        max-width: 100% !important;
+
+    }
+
+    .container.services .services--card {
+        flex-direction: column;
+
+    }
+
+    .container .highlights {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .highlights .card {
+        width: calc(50% - 20px);
+        height: 220px;
+        margin: 10px;
+        padding: 5px;
+
+    }
+
+    .highlights .card img{
+    width: 100px;
+    }
+
+    .products{
+        flex-direction: column;
+    }
+    .products__container-hover{
+        width: 100% !important;
+    }
+    /*.article{*/
+    /*    flex-direction: column;*/
+    /*}*/
+    .container--form{
+        flex-direction: column;
+    }
+    .form-container{
+        max-width: 100% !important;
+    }
+    .form-container{
+        width: 100%;
+    }
+    .border-dan {
+        bottom: 0;
+    }
+
+    }
+
+
+    @media (max-width: 1080px) {
+
+    }
+
