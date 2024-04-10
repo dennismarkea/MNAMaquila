@@ -255,7 +255,7 @@ body {
 }
 
 /* Apparition effect on links */
-.mobile-nav a {
+.mobile-nav ul a {
     opacity: 0;
     /*transform: translateY(-10px);*/
     padding-left: 20px !important;
