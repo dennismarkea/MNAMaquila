@@ -238,7 +238,7 @@ body {
     align-items: center;
     justify-content: end;
     /*transform: translateX(-18%) skew(-16deg);*/
-    height: 30vh;
+    height: 46vh;
 
 
     padding: 0 !important;
@@ -258,7 +258,7 @@ body {
 .mobile-nav ul a {
     opacity: 0;
     /*transform: translateY(-10px);*/
-    padding-left: 20px !important;
+    padding-left: 30px !important;
     border-bottom: 1px solid var(--grey-light);
 }
 
@@ -341,7 +341,7 @@ body {
 }
 
 .mobile-nav .bottom-actions{
-    width: 40%;
+    width: 38%;
     justify-content: center;
 }
 
