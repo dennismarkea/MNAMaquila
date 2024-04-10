@@ -238,7 +238,7 @@ body {
     align-items: center;
     justify-content: end;
     /*transform: translateX(-18%) skew(-16deg);*/
-    height: 40vh;
+    height: 30vh;
 
 
     padding: 0 !important;
@@ -341,7 +341,7 @@ body {
 }
 
 .mobile-nav .bottom-actions{
-    width: 38%;
+    width: 40%;
     justify-content: center;
 }
 
