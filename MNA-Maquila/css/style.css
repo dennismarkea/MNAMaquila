@@ -341,7 +341,7 @@ body {
 }
 
 .mobile-nav .bottom-actions{
-    width: 38%;
+    width: 44%;
     justify-content: center;
 }
 
@@ -623,6 +623,7 @@ footer.container-fluid .container p:nth-child(1){
 .mobile-footer{
     position: absolute;
     bottom: 20px;
+    left: 4vh;
 }
 .mobile-footer p:nth-child(1){
     font-size: 14px;
@@ -661,7 +662,7 @@ footer.container-fluid .container p:nth-child(1){
         height: auto;
     }
     .hero p{
-        padding-top: 560px !important;
+        padding-top: 100% !important;
     }
 
     .container.hero h1 {
@@ -670,6 +671,7 @@ footer.container-fluid .container p:nth-child(1){
 
     .container.hero button {
         order: 2;
+        margin-bottom: 59%;
     }
 
     .container.hero p {
