@@ -642,6 +642,11 @@ footer.container-fluid .container p:nth-child(1){
 }
 /* 11. Medios */
 @media (max-width: 576px) {
+    .container{
+        --bs-gutter-x: 2.5rem !important;
+        padding-right: calc(var(--bs-gutter-x) * .5) !important;
+        padding-left: calc(var(--bs-gutter-x) * .5)!important;
+    }
     .container--info {
         display: none;
     }
