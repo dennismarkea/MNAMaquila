@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mna-maquila:latest
+    container_name: mna-maquila-app
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=dbpxnuejagkq3r
+      - DB_USERNAME=ufgydnenruu6b
+      - DB_PASSWORD=394ch#f2@123
+      - MAIL_HOST=mailhog
+      - MAIL_PORT=1025
+    depends_on:
+      - db
+      - mailhog
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dbpxnuejagkq3r
+      MYSQL_USER: ufgydnenruu6b
+      MYSQL_PASSWORD: 394ch#f2@123
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "8025:8025"
+
+volumes:
+  dbdata:
