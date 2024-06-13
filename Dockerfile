@@ -1,19 +1,28 @@
 # Usa una imagen base de PHP con Apache
 FROM php:8.1-apache
 
-# Instala extensiones de PHP necesarias
+# Instala las herramientas necesarias
 RUN apt-get update && apt-get install -y \
+    git \
     libpng-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
     zip \
-    unzip \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    unzip
+
+# Instala extensión de mysqli
+RUN docker-php-ext-install mysqli
+
+# Instala extensiones de PHP necesarias
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo pdo_mysql
+# Copia el archivo dump.sql desde la raíz del proyecto de Laravel al directorio /docker-entrypoint-initdb.d/ en el contenedor
 
-# Copia el contenido de tu proyecto al contenedor
-COPY . /var/www/html
+COPY dump.sql /docker-entrypoint-initdb.d/
+
+# Clona el repositorio de Git con el branch main
+# RUN git clone -b main https://github.com/dennismarkea/MNAMaquila.git /var/www/html
 
 # Establece el directorio de trabajo
 WORKDIR /var/www/html
